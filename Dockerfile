@@ -5,6 +5,8 @@ USER root
 COPY /config/airflow.cfg ./airflow.cfg
 COPY /dags ./dags
 
+COPY /.aws ./.aws
+
 COPY entrypoint.sh /entrypoint.sh
 COPY requirements.txt /requirements.txt
 

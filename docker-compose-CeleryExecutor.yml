@@ -79,8 +79,6 @@ services:
         depends_on:
             - scheduler
         volumes:
-            - ~/.aws/:/usr/local/airflow/.aws
-            # - /Users/pradeep/.aws/:/usr/local/airflow/.aws
             - ./dags:/usr/local/airflow/dags
             # Uncomment to include custom plugins
             # - ./plugins:/usr/local/airflow/plugins
