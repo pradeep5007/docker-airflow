@@ -5,8 +5,8 @@ S3 Sensor Connection Test
 from airflow import DAG
 from airflow.operators import SimpleHttpOperator, HttpSensor,   BashOperator, EmailOperator, S3KeySensor
 from datetime import datetime, timedelta
-import airflow
 from airflow.operators.python_operator import PythonOperator
+import airflow
 
 import pip
 import time
@@ -21,7 +21,7 @@ OUTPUT_DIR = 'output'
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    "start_date": datetime(2020, 7, 23),
+    "start_date": airflow.utils.dates.days_ago( 1 ),
     'email': ['something@here.com'],
     'email_on_failure': False,
     'email_on_retry': False,

@@ -5,12 +5,13 @@ http://airflow.readthedocs.org/en/latest/tutorial.html
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
+import airflow
 
 
 default_args = {
     "owner": "airflow",
     "depends_on_past": False,
-    "start_date": datetime(2020, 7, 23),
+    "start_date": airflow.utils.dates.days_ago( 1 ),
     "email": ["airflow@airflow.com"],
     "email_on_failure": False,
     "email_on_retry": False,
